@@ -5,7 +5,7 @@ import Questions from './components/Questions';
 function App() {
  return (
    <div>
-     <h3>App</h3>
+     <h3>Carbon Footprint Calculator</h3>
      <Questions />
    </div>
  ) 
