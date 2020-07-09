@@ -6,19 +6,27 @@ function Questions() {
     // variable and its setter method which will store all our questions and the answer that the user selected
     const [questions, setQuestions] = useState([
         {
-            type: "mc",
             question: "Do you have solar panels?",
 
             // this part of the object is what will store which option the user has selected
             // we should be able to pass these selections into a function that performs the calculation
             currentOption: "none",
             options: [
-            "Yes",
-            "No"
+                "Yes",
+                "No"
+            ],
+            // stores the value that will be added to carbon footprint if the option with the same index is selected
+            effects: [
+                -5000, // this is for "Yes"
+                0 // this is for "No"
+            ],
+            // stores the tip that will be added to the tip array if the option with the same index is selected (not sure how we want to reference tips)
+            qTips: [
+                "none", // this is for "Yes"
+                "Tip #1" // this is for "No"
             ]
         },
         {
-            type: "mc",
             question: "How much money do you spend on electricity each month?",
             currentOption: "none",
             options: [
@@ -27,10 +35,23 @@ function Questions() {
             "$150-250",
             "$250+",
             "Don't Know"
+            ],
+            effects: [
+                -5000,
+                0,
+                10000,
+                15000,
+                0
+            ],
+            qTips: [
+                "none",
+                "none",
+                "none",
+                "Tip #2",
+                "none"
             ]
         },
         {
-            type: "mc",
             question: "How many people live in your house?",
             currentOption: "none",
             options: [
@@ -58,7 +79,7 @@ function Questions() {
     // function for the calculation
     const calculate = () => e => {
 
-        // have to set temporary value that footprint and tips can be set to at the end of the logic
+        // have to set temporary values that footprint and tips can be set to at the end of the logic
         var tempFootprint = 32000;
         var tempTips = [];
 
@@ -66,40 +87,25 @@ function Questions() {
             
             // store the current answer you're checking within the loop
             var answer = questions[i].currentOption;
-            
-            // if you're checking the first question (copy this part as an else if)
-            if (i === 0) {
-                if (answer.localeCompare("Yes") === 0) {
-                    // this adds or subtracts from the footprint
-                    tempFootprint -= 5000;
+            // store the options, effects on footprint, tips for that question
+            var options = questions[i].options;
+            var effects = questions[i].effects;
+            var qTips = questions[i].qTips;
 
-                    // this adds to the list of tips, just an example
-                    tempTips.push("Tip #1");
-                }
-                else if (answer.localeCompare("No") === 0) {
-                    tempFootprint += 0;
+            // go through all of the options for that question
+            for (var j = 0; j < options.length; j++) {
+                // check if the option they selected is equal to the current option in the loop
+                if (answer.localeCompare(options[j]) === 0) {
+
+                    // if it is, add the corresponding effect (of the same index) to the footprint
+                    tempFootprint += effects[j];
+
+                    // do the same for the corresponding tip
+                    if (qTips[j].localeCompare("none") !== 0) {
+                        tempTips.push(qTips[j]);
+                    }
                 }
             }
-
-            // for question 2 
-            else if (i === 1) {
-                if (answer.localeCompare("$0-75") === 0) {
-                    tempFootprint -= 5000;
-                }
-                else if (answer.localeCompare("$75-150") === 0) {
-                    tempFootprint += 0;
-                }
-                else if (answer.localeCompare("$150-250") === 0) {
-                    tempFootprint += 10000;
-                }
-                else if (answer.localeCompare("$250+") === 0) {
-                    tempFootprint += 15000;
-                }
-                else if (answer.localeCompare("Don't Know") === 0) {
-                    tempFootprint += 0;
-                }
-            }
-            
         }
 
         // set the state footprint and tip variables to the temporary ones
