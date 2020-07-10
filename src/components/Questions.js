@@ -57,8 +57,15 @@ function Questions() {
             options: [
             "1-2",
             "3-4",
-            "5+"
-            ]        
+            "5-6",
+            "7+"
+            ],
+            effects: [ //calculated later
+                1.5,
+                3.5,
+                5.5,
+                8
+            ]
         },
     ])
 
@@ -82,6 +89,8 @@ function Questions() {
         // have to set temporary values that footprint and tips can be set to at the end of the logic
         var tempFootprint = 32000;
         var tempTips = [];
+        var solarPanel = false;
+        var electricityBill = 0;
 
         for (var i = 0; i < questions.length; i++) {
             
@@ -98,7 +107,25 @@ function Questions() {
                 if (answer.localeCompare(options[j]) === 0) {
 
                     // if it is, add the corresponding effect (of the same index) to the footprint
-                    tempFootprint += effects[j];
+                    if (i==0 && options[j] == "Yes") { // save the fact that the user has solar panels
+                        solarPanel = true;
+                    }
+                    //run through special cases, last else statement is for normal questions
+                    if (i == 1) { //electricity bill question
+                        if (!solarPanel) {
+                            electricityBill = effects[j]; //save value to be calculated in next question
+                        }
+                    } else if (i == 2 ) { //number of people question
+                        if (!solarPanel) { // only change if user doesn't have solar panels
+                            electricityBill += 5000;
+                            electricityBill /= effects[j];
+                            electricityBill -= 5000;
+                            tempFootprint += electricityBill;
+                        } //else change nothing, effect changed in question 1
+                    } else { //regular question, change normally
+                        tempFootprint += effects[j];
+                    }
+                    
 
                     // do the same for the corresponding tip
                     if (qTips[j].localeCompare("none") !== 0) {
