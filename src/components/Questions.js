@@ -30,11 +30,11 @@ function Questions() {
             question: "How much money do you spend on electricity each month?",
             currentOption: "none",
             options: [
-            "$0-75",
-            "$75-150",
-            "$150-250",
-            "$250+",
-            "Don't Know"
+                "$0-75",
+                "$75-150",
+                "$150-250",
+                "$250+",
+                "Don't Know"
             ],
             effects: [
                 -5000,
@@ -55,18 +55,68 @@ function Questions() {
             question: "How many people live in your house?",
             currentOption: "none",
             options: [
-            "1-2",
-            "3-4",
-            "5-6",
-            "7+"
+                "1-2",
+                "3-4",
+                "5-6",
+                "7+"
             ],
             effects: [ //calculated later
                 1.5,
                 3.5,
                 5.5,
                 8
+            ],
+            qTips: [
+                "none",
+                "none",
+                "none",
+                "none",
             ]
         },
+        {
+            question: "How many times do you have a meal with beef every week?",
+            currentOption: "none",
+            options: [
+                "0",
+                "1-7",
+                "8-14",
+                "15+",
+            ],
+            effects: [
+                -2000,
+                0,
+                1000,
+                2000
+            ],
+            qTips: [
+                "none",
+                "none",
+                "none",
+                "none",
+            ]
+        },
+        {
+            question: "Do you eat locally and/or organic?",
+            currentOption: "none",
+            options: [
+                "Neither",
+                "Locally",
+                "Organic",
+                "Both",
+            ],
+            effects: [
+                0,
+                0,
+                0,
+                0
+            ],
+            qTips: [
+                "none",
+                "none",
+                "none",
+                "none",
+            ]
+        }
     ])
 
     // variable to store footprint value
@@ -107,15 +157,15 @@ function Questions() {
                 if (answer.localeCompare(options[j]) === 0) {
 
                     // if it is, add the corresponding effect (of the same index) to the footprint
-                    if (i==0 && options[j] == "Yes") { // save the fact that the user has solar panels
+                    if (i=== 0 && options[j] === "Yes") { // save the fact that the user has solar panels
                         solarPanel = true;
                     }
                     //run through special cases, last else statement is for normal questions
-                    if (i == 1) { //electricity bill question
+                    if (i === 1) { //electricity bill question
                         if (!solarPanel) {
                             electricityBill = effects[j]; //save value to be calculated in next question
                         }
-                    } else if (i == 2 ) { //number of people question
+                    } else if (i === 2 ) { //number of people question
                         if (!solarPanel) { // only change if user doesn't have solar panels
                             electricityBill += 5000;
                             electricityBill /= effects[j];
