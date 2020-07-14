@@ -1,5 +1,5 @@
 import React,  {useState}  from 'react';
-import logo from '../Carbonacalclogo.png';
+import logo from '../assets/Carbonacalclogo.png';
 import {Link} from 'react-router-dom';
 function Questions() {
 
@@ -193,46 +193,49 @@ function Questions() {
     // this is what will be displayed
     return  (
         <div>
-<header className="Calcheader">
-<Link to="/">
-        <img src={logo} alt="Our logo" className="HomelogoQ"/>
-        </Link>
-    <h1 className="Calctitle">
-        Calculator
-    </h1>
-    <h2 className="CalcDirections">
-Select the answer that matches you the best, if you are not sure select the "US Average" answer
-    </h2>
-</header>
-<div className="CalculatorQ">
-        <div>
-        {
-        // parse through all of the questions
-        questions.map((question, index) => (
-            <div>
-                <h4>{ question.question }</h4>
+            <header className="Calcheader">
+                <Link to="/">
+                    <img src={logo} alt="Our logo" className="HomelogoQ"/>
+                </Link>
+                <h1 className="Calctitle">
+                    Calculator
+                </h1>
+                <h2 className="CalcDirections">
+                    Select the answer that matches you the best, if you are not sure select the "US Average" answer
+                </h2>
+            </header>
+            <div className="CalculatorQ">
                 <div>
-                    {
-                    // parse through the options within the question
-                    question.options.map(option => (
+                {
+                // parse through all of the questions
+                questions.map((question, index) => (
+                    <div>
+                        <h4>{ question.question }</h4>
                         <div>
-                            <input 
-                                type="radio"
-                                style={{ display: 'inline-block', marginRight: '5px' }}
-                                checked={ option.localeCompare(question.currentOption) === 0 ? true : false }
-                                onChange={changeOption(index, option)}
-                            />
-                            <p style={{ display: 'inline-block' }}>{ option }</p>
+                            {
+                            // parse through the options within the question
+                            question.options.map(option => (
+                                <div>
+                                    <input 
+                                        type="radio"
+                                        style={{ display: 'inline-block', marginRight: '5px' }}
+                                        checked={ option.localeCompare(question.currentOption) === 0 ? true : false }
+                                        onChange={changeOption(index, option)}
+                                    />
+                                    <p style={{ display: 'inline-block' }}>{ option }</p>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
+                ))}
                 </div>
             </div>
-        ))}
-        </div>
-        </div>
-        <button>
-            Calculate
-        </button>
+            {/* This is temporary until we finish the calculations, only for testing. */}
+            <div>
+                <button onClick={ calculate() }>Calculate</button>
+                <h4>Footprint: { footprint }</h4>
+                <h5>Tips: { tips }</h5>
+            </div>
         </div>
     )
 }
