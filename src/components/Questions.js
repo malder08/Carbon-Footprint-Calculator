@@ -46,7 +46,7 @@ function Questions() {
             qTips: [
                 "none",
                 "none",
-                "none",
+                "Tip #2",
                 "Tip #2",
                 "none"
             ]
@@ -71,6 +71,86 @@ function Questions() {
                 "none",
                 "none",
                 "none",
+                "none"
+            ]
+        },
+        {
+            question: "In total, how many miles do you drive in a week, or ride in a car?",
+            currentOption: "none",
+            options: [
+                "0-100",
+                "100-300",
+                "300+",
+                "Don't Know",
+            ],
+            effects: [
+                50,
+                150,
+                300,
+                150
+            ],
+            qTips: [
+                "none",
+                "Tip #3",
+                "Tip #3",
+                "Tip #3"
+            ]
+        },
+        {
+            question: "What is your car's average milage (mpg)?",
+            currentOption: "none",
+            options: [
+                "10-20",
+                "20-30",
+                "30+",
+                "Don't Know",
+            ],
+            effects: [
+                15,
+                25,
+                35,
+                25
+            ],
+            qTips: [
+                "none",
+                "Tip #4",
+                "Tip #4",
+                "Tip #4"
+            ]
+        },
+        {
+            question: "Do you recycle?",
+            currentOption: "none",
+            options: [
+                "No",
+                "Occasionally",
+                "Often",
+            ],
+            effects: [
+                1000,
+                0,
+                -1000
+            ],
+            qTips: [
+                "Tip #5",
+                "Tip #5",
+                "none",
+            ]
+        },
+        {
+            question: "Do you run a compost?",
+            currentOption: "none",
+            options: [
+                "Yes",
+                "No",
+            ],
+            effects: [
+                -1000,
+                0
+            ],
+            qTips: [
+                "none",
+                "Tip #6"
             ]
         },
         {
@@ -91,8 +171,8 @@ function Questions() {
             qTips: [
                 "none",
                 "none",
-                "none",
-                "none",
+                "Tip #7",
+                "Tip #7",
             ]
         },
         {
@@ -111,7 +191,7 @@ function Questions() {
                 0
             ],
             qTips: [
-                "none",
+                "Tip #8",
                 "none",
                 "none",
                 "none",
@@ -141,6 +221,7 @@ function Questions() {
         var tempTips = [];
         var solarPanel = false;
         var electricityBill = 0;
+        var milesDriven = 0;
 
         for (var i = 0; i < questions.length; i++) {
             
@@ -172,6 +253,10 @@ function Questions() {
                             electricityBill -= 5000;
                             tempFootprint += electricityBill;
                         } //else change nothing, effect changed in question 1
+                    } else if (i==3) { //miles driven
+                        milesDriven = effects[j];
+                    } else if (i==4) { //mpg
+                        tempFootprint += ((milesDriven/effects[j])*20*52)-10400;
                     } else { //regular question, change normally
                         tempFootprint += effects[j];
                     }
