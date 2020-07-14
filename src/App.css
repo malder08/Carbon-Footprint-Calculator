@@ -1,38 +1,164 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1{ font-family: 'Courier New', Courier, monospace;
+  font-size: 45px;
+color:  #242424e8;text-align: center;}
+body{
+  background: #1D976C;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #a9f8c67a, #29977198);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #93F9B9, #1D976C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.Homelogo{
+  margin-top: -35px;
+  margin-left: 855px;
+  position: relative;
+}
+@media (max-width:767px){
+ .Homelogo{
+   display: block;
+  margin: 0 auto;
+ }
+ header {
+  height: auto;
+}
+}
+header{
+  background-color:#edf1ecb9;
+  height: 215px;
+}
+.Questioninput{
+display: flex;
+font-size: 20px;
+margin-left: 40px;
+}
+.Navhome{
+font-size: 25px;
+display: flex;
+margin-top: -18px;
+min-height: 5vh;
+list-style-type: none;
+justify-content: space-between;
+margin-right: 18px;
+margin-left: -5px;
+}
+.homeimages{
+  display: block; 
+  flex-direction: row;
+justify-content: space-evenly;
+height: 400px;
+width: 400px;
+border-radius: 50%;
+max-width: 100%;}
+.homeimages img{
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
   }
+  .row {
+    display: flex;
+    margin-top: 150px;
+  }
+  @media (max-width: 600px) { 
+        header {
+            height: auto;
+        }
+        .Homelogo{
+          display: block;
+         margin: 0 auto;
+        }}
+.homeimgtext{
+  display: none;
+  position: absolute;
+width: 204px;
+height: 100px;
+margin-left: 110px;
+margin-top: -225px;
 }
+  .column {
+    flex: 33.33%;
+    padding: 5px;
+    margin-left: 45px;
+  }
+.Maintitle{text-align: center;font-family:'Courier New', Courier, monospace;
+  font-size: 46;padding-top: 30px;}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Linkstitle{text-align: center;font-family: 'Courier New', Courier, monospace;
+  padding: 15px;}
+
+.Links{font-size: 20px;font-family: 'Courier New', Courier, monospace;
+  text-align: center;}
+.bottomtext{
+  font-size: 55px; 
+  padding-top: 30px;
+  font-family: fantasy;
+}
+.MissionStatementTitle{
+  text-align: center;
+  font-size: 30px;
+  font-family: initial ;
+  padding-top: 30px;
+}
+.statement{
+  text-align: center;
+  font-size: 26px;
+  font-family: 'Courier New', Courier, monospace;
+  padding-top: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+#quote{
+  font-family: initial;
+  text-align: center;
+  font-size: 35px;
+  padding-top: 50px;
+}
+.bottompageimgs{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 150px;
+  margin-top: -110px;
 }
-
-.App-link {
-  color: #61dafb;
+.bottompageimgs img{
+  height: 250px;
+  width: 250px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Pagetitle{
+  margin-top: -50px;
+  font-size: 50px;
+}
+.Calcheader{
+  background-color:#edf1ecb9;
+  height: 295px;
+  margin-top: -30px;
+}
+.CalculatorQ{
+  text-align: center;
+}
+.CalcDirections{
+  text-align: center;
+  font-size: 28px;
+  font-family: 'Courier New', Courier, monospace;
+  margin-top: -20px;
+}
+.Calctitle{
+  margin-top: -30px;
+  font-size: 38px;
+  font-family: 'Courier New', Courier, monospace;
+}
+.HomelogoQ{
+  margin-top: 1em;
+  margin-left: 855px;
+  position: relative;
+}
+.column:hover .homeimages{
+  opacity: .2;
+  transition: 0.5s;
+}
+.column:hover .homeimgtext{
+ display: block;
+ text-emphasis: bold;
+ font-size: 22px;
+ font-family: 'Courier New', Courier, monospace;
 }
