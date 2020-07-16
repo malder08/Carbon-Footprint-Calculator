@@ -24,7 +24,7 @@ function Questions() {
             // stores the tip that will be added to the tip array if the option with the same index is selected (not sure how we want to reference tips)
             qTips: [
                 "none", // this is for "Yes"
-                "Tip #1" // this is for "No"
+                "Solar Panels have proven to greatly reduce both your electricity bill and the carbon emissions produced from electrcity-production" // this is for "No"
             ]
         },
         {
@@ -47,8 +47,8 @@ function Questions() {
             qTips: [
                 "none",
                 "none",
-                "Tip #2",
-                "Tip #2",
+                "Turn off your lights at night. If you work during the day, consider programming your thermostat to set your house temperature lower when you are not home. Make sure to turn off devices that are not actively in use, such as TVs, computers, lamps, etc.",
+                "Turn off your lights at night. If you work during the day, consider programming your thermostat to set your house temperature lower when you are not home. Make sure to turn off devices that are not actively in use, such as TVs, computers, lamps, etc.",
                 "none"
             ]
         },
@@ -92,9 +92,9 @@ function Questions() {
             ],
             qTips: [
                 "none",
-                "Tip #3",
-                "Tip #3",
-                "Tip #3"
+                "When traveling, consider car-pooling and public transit for work. Riding your bike to your can help the environment and your health. A single individual’s use of their car throughout the week can needlessly cause an abundant amount of carbon emissions every single day. ",
+                "When traveling, consider car-pooling and public transit for work. Riding your bike to your can help the environment and your health. A single individual’s use of their car throughout the week can needlessly cause an abundant amount of carbon emissions every single day. ",
+                "When traveling, consider car-pooling and public transit for work. Riding your bike to your can help the environment and your health. A single individual’s use of their car throughout the week can needlessly cause an abundant amount of carbon emissions every single day. ",
             ]
         },
         {
@@ -114,9 +114,9 @@ function Questions() {
             ],
             qTips: [
                 "none",
-                "Tip #4",
-                "Tip #4",
-                "Tip #4"
+                "For your car, having an economically and environmentally sound car can lead to fewer carbon emissions. The higher the MPG, the fewer the gas stops, the better! Consider the environmental effects of the car you drive and any car you may consider buying in the future. Electric and Hybrid cars can also be great alternatives! ",
+                "For your car, having an economically and environmentally sound car can lead to fewer carbon emissions. The higher the MPG, the fewer the gas stops, the better! Consider the environmental effects of the car you drive and any car you may consider buying in the future. Electric and Hybrid cars can also be great alternatives! ",
+                "For your car, having an economically and environmentally sound car can lead to fewer carbon emissions. The higher the MPG, the fewer the gas stops, the better! Consider the environmental effects of the car you drive and any car you may consider buying in the future. Electric and Hybrid cars can also be great alternatives! "
             ]
         },
         {
@@ -133,8 +133,8 @@ function Questions() {
                 -1000
             ],
             qTips: [
-                "Tip #5",
-                "Tip #5",
+                "Recycling can greatly reduce pollution to our air and to the ocean. There are several recycling depots across most states and in neighborhoods. Ask your HOA president for more information on recycling in your neighborhood.",
+                "Recycling can greatly reduce pollution to our air and to the ocean. There are several recycling depots across most states and in neighborhoods. Ask your HOA president for more information on recycling in your neighborhood.",
                 "none",
             ]
         },
@@ -151,7 +151,7 @@ function Questions() {
             ],
             qTips: [
                 "none",
-                "Tip #6"
+                "Composting is a great way to make the most out of all the organic nutrients that can come from our waste products that we usually throw away. Composting can lead to producing some of the most mineral-rich soil conditioners for your home garden or lawn. "
             ]
         },
         {
@@ -172,8 +172,8 @@ function Questions() {
             qTips: [
                 "none",
                 "none",
-                "Tip #7",
-                "Tip #7",
+                "Poultry or fish can be a great substitute for protein in meals. Beef actually has the highest Methane production than any other consumable meat. Methane is extremely detrimental to the climate.",
+                "Poultry or fish can be a great substitute for protein in meals. Beef actually has the highest Methane production than any other consumable meat. Methane is extremely detrimental to the climate.",
             ]
         },
         {
@@ -190,7 +190,7 @@ function Questions() {
                 -0.05
             ],
             qTips: [
-                "Tip #8",
+                "Eating locally means that you are protecting the small farmland that is environmentally conscious of its effects, rather to the large corporations who are less aware of its effects. Purchasing foods from local farmers markets can greatly support small farmland.",
                 "none",
                 "none",
             ]
