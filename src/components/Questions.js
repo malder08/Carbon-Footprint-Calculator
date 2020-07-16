@@ -177,23 +177,20 @@ function Questions() {
             ]
         },
         {
-            question: "Do you eat locally and/or organic?",
+            question: "How often do you eat locally?",
             currentOption: "none",
             options: [
-                "Neither",
-                "Locally",
-                "Organic",
-                "Both",
+                "Never",
+                "Occasionally",
+                "Often",
             ],
             effects: [
-                0,
-                0,
-                0,
-                0
+                0.01,
+                -0.03,
+                -0.05
             ],
             qTips: [
                 "Tip #8",
-                "none",
                 "none",
                 "none",
             ]
@@ -220,7 +217,7 @@ function Questions() {
                     Calculator
                 </h1>
                 <h2 className="CalcDirections">
-                    Select the answer that matches you the best, if you are not sure select the "US Average" answer
+                    Select the answer that matches you the best.
                 </h2>
             </header>
             <div className="CalculatorQ">
@@ -249,15 +246,14 @@ function Questions() {
                 ))}
                 </div>
             </div>
-            {/* This is temporary until we finish the calculations, only for testing. */}
-            <div>
+            <div style={{textAlign: 'center'}}>
                 <Link to={{
                     pathname: "/results",
                     state: {
                         input: {questions: questions},
                     } 
                 }}>
-                    <button>Calculate</button>
+                    <button className="calc-button">Calculate</button>
                 </Link>
             </div>
         </div>

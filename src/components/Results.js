@@ -14,6 +14,8 @@ function Results(props){
   // array to store tips
   const [tips, setTips] = useState([]);
 
+  const [scaleWidth, setScaleWidth] = useState();
+
   const calculate = () => {
 
     console.log("calculate");
@@ -24,6 +26,7 @@ function Results(props){
     var solarPanel = false;
     var electricityBill = 0;
     var milesDriven = 0;
+    var tempWidth = 0;
 
     for (var i = 0; i < questions.length; i++) {
         
@@ -55,10 +58,12 @@ function Results(props){
                         electricityBill -= 5000;
                         tempFootprint += electricityBill;
                     } //else change nothing, effect changed in question 1
-                } else if (i==3) { //miles driven
+                } else if (i === 3) { //miles driven
                     milesDriven = effects[j];
-                } else if (i==4) { //mpg
+                } else if (i === 4) { //mpg
                     tempFootprint += ((milesDriven/effects[j])*20*52)-10400;
+                } else if (i === 8) {
+                  tempFootprint += tempFootprint * effects[j];
                 } else { //regular question, change normally
                     tempFootprint += effects[j];
                 }
@@ -75,6 +80,36 @@ function Results(props){
     // set the state footprint and tip variables to the temporary ones
     setFootprint(tempFootprint);
     setTips(tempTips);
+
+    tempWidth = 100 * ((tempFootprint - 14000) / 36000);
+    if (tempWidth > 100) {
+      setScaleWidth(100);
+    }
+    else {
+      setScaleWidth(tempWidth);
+    }
+    console.log(100 * ((tempFootprint - 14000) / 36000));
+  }
+
+  var dotStyle = {
+    background: '#474747', 
+    marginLeft: scaleWidth + '%',
+    width: '22px', 
+    height: '22px',
+    borderRadius: '50%',
+    display: 'block',
+    position: 'relative',
+    top: '-2.5px',
+  }
+
+  var barStyle = { 
+    background: 'linear-gradient(0.25turn, #41FC3D, #E4C212, #E70000)', 
+    margin: '0px 30px', 
+    padding: '0px 30px',
+    height: '15px',
+    borderRadius: '10px',
+    display: 'block',
+    overflow: 'visible'
   }
 
   useEffect(() => {
@@ -89,8 +124,26 @@ function Results(props){
         <h1 className="Pagetitle">
           Results
         </h1>
-        <h3>Footprint: { footprint }</h3>
-        <h3>Tips: { tips }</h3>
+        <div style={{margin: '50px 0px'}}>
+          <div style={{ textAlign: 'center', margin: '0px 30px'}}>
+            <h4 style={{float: 'left', display: 'inline-block'}}>Low</h4>
+            <h4 style={{display: 'inline-block'}}>Average</h4>
+            <h4 style={{float: 'right', display: 'inline-block'}}>High</h4>
+          </div>
+          <div style={{verticalAlign: 'center'}}>
+            <div style={barStyle}>
+                <div style={dotStyle}></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          {tips.length !== 0 ? <h2>Tips</h2> : <h2></h2>}
+          {
+            tips.map(tip => (
+              <li className="tips-li">{ tip }</li>
+            ))
+          }
+        </div>
       </header>
   )
 }
