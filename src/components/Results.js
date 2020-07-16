@@ -117,6 +117,7 @@ function Results(props){
   }, []);
 
   return(
+    <div>
       <header>
         <Link to="/">
           <img src={logo} alt="Our logo" className="Homelogo"/>
@@ -124,27 +125,29 @@ function Results(props){
         <h1 className="Pagetitle">
           Results
         </h1>
-        <div style={{margin: '50px 0px'}}>
-          <div style={{ textAlign: 'center', margin: '0px 30px'}}>
-            <h4 style={{float: 'left', display: 'inline-block'}}>Low</h4>
-            <h4 style={{display: 'inline-block'}}>Average</h4>
-            <h4 style={{float: 'right', display: 'inline-block'}}>High</h4>
-          </div>
-          <div style={{verticalAlign: 'center'}}>
-            <div style={barStyle}>
-                <div style={dotStyle}></div>
-            </div>
-          </div>
-        </div>
-        <div>
-          {tips.length !== 0 ? <h2>Tips</h2> : <h2></h2>}
-          {
-            tips.map(tip => (
-              <li className="tips-li">{ tip }</li>
-            ))
-          }
-        </div>
       </header>
+      <div style={{margin: '50px 0px'}}>
+        <h2>Your Carbon Footprint is Approximately { parseInt(footprint) } Pounds of CO2/Year</h2>
+        <div style={{ textAlign: 'center', margin: '0px 30px'}}>
+          <h4 style={{float: 'left', display: 'inline-block'}}>Low</h4>
+          <h4 style={{display: 'inline-block'}}>Average</h4>
+          <h4 style={{float: 'right', display: 'inline-block'}}>High</h4>
+        </div>
+        <div style={{verticalAlign: 'center'}}>
+          <div style={barStyle}>
+              <div style={dotStyle}></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        {tips.length !== 0 ? <h2>Tips</h2> : <h2></h2>}
+        {
+          tips.map(tip => (
+            <li className="tips-li">{ tip }</li>
+          ))
+        }
+      </div>
+    </div>
   )
 }
 
