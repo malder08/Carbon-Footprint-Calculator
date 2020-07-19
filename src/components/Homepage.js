@@ -14,14 +14,14 @@ function Homepage() {
           <img src={logo} alt="Our logo" className="Homelogo"/>
           <nav>
             <ul className="Navhome">
-              <Link style={{ textDecoration: 'none' }} to="/Resources">
-                <li className="nav-li">Resources</li>
+              <Link className="nav-link" to="/Resources">
+                <li>Resources</li>
               </Link>
-              <Link style={{ textDecoration: 'none' }} to="/Questions">
-                <li className="nav-li">Calculator</li>
+              <Link className="nav-link" to="/Questions">
+                <li>Calculator</li>
               </Link>
-              <Link style={{ textDecoration: 'none' }} to="/Ourmission">
-                <li className="nav-li">Our Mission</li>
+              <Link className="nav-link" to="/Ourmission">
+                <li>Our Mission</li>
               </Link>
             </ul>
           </nav>
