@@ -9,19 +9,19 @@ import animal from '../assets/Pika.jpg';
 function Homepage() {
   return (
     <body>
-      <div className="container_row">
+      <div>
         <header>
           <img src={logo} alt="Our logo" className="Homelogo"/>
           <nav>
             <ul className="Navhome">
-              <Link to="/Resources">
-                <li>Resources</li>
+              <Link style={{ textDecoration: 'none' }} to="/Resources">
+                <li className="nav-li">Resources</li>
               </Link>
-              <Link to="/Questions">
-                <li>Calculator</li>
+              <Link style={{ textDecoration: 'none' }} to="/Questions">
+                <li className="nav-li">Calculator</li>
               </Link>
-              <Link to="/Ourmission">
-                <li>Our Mission</li>
+              <Link style={{ textDecoration: 'none' }} to="/Ourmission">
+                <li className="nav-li">Our Mission</li>
               </Link>
             </ul>
           </nav>

@@ -209,9 +209,9 @@ function Questions() {
 
     return  (
         <div>
-            <header className="Calcheader">
+            <header>
                 <Link to="/">
-                    <img src={logo} alt="Our logo" className="HomelogoQ"/>
+                    <img src={logo} alt="Our logo" className="Homelogo"/>
                 </Link>
                 <h1 className="Calctitle">
                     Calculator
